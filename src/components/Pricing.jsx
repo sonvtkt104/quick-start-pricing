@@ -30,8 +30,10 @@ import {
 
 const app = {}
 
-let shop_name = window.document.getElementsByTagName("meta")["shop-name"].getAttribute("content")
-let shopId = document.getElementsByTagName("meta")["shop-id"].getAttribute("content")
+const shop_name = window.document.getElementsByTagName("meta")["shop-name"].getAttribute("content")
+const shopId = document.getElementsByTagName("meta")["shop-id"].getAttribute("content")
+const proId = document.getElementsByTagName("meta")["pro-id"].getAttribute("content")
+const unlimitedId = document.getElementsByTagName("meta")["unlimited-id"].getAttribute("content")
 
 
 export class ComfirmPopup extends React.Component {
@@ -3060,7 +3062,7 @@ class Pricing extends Component {
                     comfirmPay={()=>{
                         setCookie({ name: "type_charge", value: "up" },1);
                         setCookie({ name: "plan_charge", value: "pro" },1);
-                        this.chargePlan(app.proId);
+                        this.chargePlan(proId);
                         
                     }}
                     title={"Confirm upgrade"}
@@ -3078,7 +3080,7 @@ class Pricing extends Component {
                     comfirmPay={()=>{
                         setCookie({ name: "type_charge", value: "up" }, 1);
                         setCookie({ name: "plan_charge", value: "unl" }, 1);
-                        this.chargePlan(app.unlimitedId);
+                        this.chargePlan(unlimitedId);
 
                     }}
                     title={"Confirm upgrade"}
