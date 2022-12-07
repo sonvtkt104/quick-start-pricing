@@ -263,7 +263,7 @@ class Pricing extends Component {
                         borderRadius: " 6px",
                         color: "#57CA8C",
                         backgroundColor: "#fff",
-                        border: detail ? "1px solid #FF3C00" : "1px solid #57CA8C",
+                        border: "1px solid #FF3C00",
                     }}
                     className="sb-button"
                     onClick={(e) => {
@@ -276,11 +276,11 @@ class Pricing extends Component {
                 >
                     <font
                         style={{
-                            color: detail ? "#FF3C00" : "#57CA8C",
+                            color: "#FF3C00",
                             fontWeight: '600'
                         }}
                     >
-                        <Trans>Choose PREMIUM</Trans>
+                        <Trans>SELECT</Trans>
                     </font>
                 </Button>
             );
@@ -298,8 +298,8 @@ class Pricing extends Component {
                         height: 40,
                         borderRadius: " 6px",
                         color: "#38383A",
-                        backgroundColor: "#FFFFFF",
-                        border: detail ? "1px solid #FF3C00" : '0',
+                        backgroundColor: "#FF3C00",
+                        border: "1px solid #FF3C00",
                     }}
                     className="sb-button"
                     onClick={(e) => {
@@ -312,11 +312,11 @@ class Pricing extends Component {
                 >
                     <font
                         style={{
-                            color: detail ? "#FF3C00" : "#38383A",
+                            color: '#fff',
                             fontWeight: '600'
                         }}
                     >
-                        <Trans>Choose ENTERPRISE</Trans>
+                        <Trans>{'TRY IT TODAY >'}</Trans>
                     </font>
                 </Button>
             );
@@ -391,7 +391,7 @@ class Pricing extends Component {
                                             fontWeight: '600'
                                         }}
                                     >
-                                        <Trans>Choose STARTER</Trans>
+                                        <Trans>SELECT</Trans>
                                     </font>
                                 </Button>
                             </a>
@@ -611,167 +611,183 @@ class Pricing extends Component {
         const thirdColumm = column3;
 
         const dataUnl = [
-            ('Long URL Fix'),
-            ('Keyword Research'),
-            ('Advanced Snippets JSON-LD'),
+            ('Long URL Handle'),
+            ('Keyword Analytics'),
             ('Accelerated Mobile Pages'),
-            ('URLs Verification'),
-            ('Customized services'),
+            ('Advanced Snippets'),
+            // ('Quick Speed Boost'),
+            ('Customized Expert'),
             ('More')
         ];
         const dataPro = [
-            ('Customized Meta Tags'),
-            ('Auto ALT Tags'),
-            ('Auto Sitemap Update'),
-            ('Broken links Auto-navigation'),
-            ('Google Search Console & Analytics'),
+            ('SEO Tags Advance Setup'),
+            ('Broken Links AutoPilot '),
+            ('Sitemap Auto Update'),
+            ('Google Search Console '),
+            ('JSON-LD'),
         ];
         const dataFree = [
             ('SEO Report'),
-            ('Bulk Meta + Alt Tags'),
-            ('Speed Analysis'),
-            ('Instant Page'),
+            ('SEO Tags Bulk Update'),
+            ('Basic Speed Up'),
+            ('Sitemap Submission'),
         ];
 
-        const ItemPlan = ({ title ,typePlan, priceCharge, priceBeforeDiscount, listOptions, special, buttonCharge,}) => {
+        const ItemPlan = ({ title ,typePlan, priceCharge, priceBeforeDiscount, listOptions, special, buttonCharge, service}) => {
             return (
                 <div
-                    className={`pricing-v3-item-plan ${special ? 'special' : ''}`}
                     style={{
                         flexBasis: '31%',
-                        background:  special ? '#58CA8C' : 'white'
                     }}
                 >
-                    <div 
+                    <div className={`pricing-v3-item-plan ${special ? 'special' : ''}`}
                         style={{
-                            fontWeight:'600',
-                            color: special? 'white' : '#FF3C00'
-                        }} 
-                    >
-                        {title}
-                    </div>
-                    <div
-                        style={{
-                            fontWeight:'700',
-                            fontSize:'51px',
-                            marginTop: '8px'
+                            background:  special ? '#58CA8C' : 'white',
+                            padding: '20px 30px 50px'
                         }}
                     >
-                        <span
+                        <div style={{marginBottom: 15}}>
+                            <span
+                                style={{padding: '2px 12px', background: '#b0b0b038', borderRadius: '5px'}}
+                            >
+                                {service}
+                            </span>
+                        </div>
+                        <div 
                             style={{
-                                fontWeight:'700',
-                                fontSize:'51px',
-                                position: 'relative',
-                                color: (special )  ? 'white' : '#38383A'
-                            }}
+                                fontSize: 24,
+                                lineHeight:'36px',
+                                fontWeight:'600',
+                                color: special? 'white' : '#38383A'
+                            }} 
                         >
-                            {priceCharge} 
-                        </span>
-                        <span 
-                            style={{
-                                fontSize: '24px',
-                                textDecorationLine: 'line-through',
-                                color: special ? 'white' : '#96A2BA',
-                                marginLeft:'10px',
-                                position: 'relative'
-                            }}
+                            {title}
+                        </div>
+                        <div
+                            style={{marginBottom: 10}}
                         >
-                            {priceBeforeDiscount}
-                        </span> 
-                    </div>
-                    <p
-                        style={{
-                            color: special ? 'white' : '#96A2BA',
-                            marginBottom: 32
-                        }}
-                    >
-                        {
-                            typePlan == 'unl' ? ("Save yourself $150/hour on SEO Agency")
-                            : typePlan == 'pro' ? ("Save yourself 300 hours of SEO manual tasks")
-                            : ("Save 8 weeks to master the basics of SEO")
-                        }
-                    </p>
-                    <div
-                        style={{
-                            textAlign: 'left',
-                            color: (  special) ? 'white' : 'rgba(56, 56, 58, 1)',
-                            fontWeight: '700',
-                            marginBottom: 10,
-                            marginLeft: 15
-                        }}
-                    >
-                        {
-                            typePlan == 'unl' ? ("Everything in PREMIUM, plus:")
-                            : typePlan == 'pro' ? ("Everything in STARTER, plus:")
-                            : ''
-                        }
-                    </div>
-                    <ul 
-                        style={{
-                            textAlign: 'left',
-                            marginLeft: 15
-                        }}
-                    >
-                        {listOptions.map((item, index) => (
-                            <li key={index}>
-                                <span style={{marginRight: 8}}>
-                                    {
-                                        special ? (
-                                            <svg width="15" height="11" viewBox="0 0 15 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M13.7319 0.685C13.639 0.591272 13.5284 0.516877 13.4065 0.466109C13.2846 0.41534 13.1539 0.389202 13.0219 0.389202C12.8899 0.389202 12.7592 0.41534 12.6373 0.466109C12.5155 0.516877 12.4049 0.591272 12.3119 0.685L4.86192 8.145L1.73192 5.005C1.6354 4.91176 1.52146 4.83845 1.3966 4.78924C1.27175 4.74004 1.13843 4.71591 1.00424 4.71823C0.870064 4.72055 0.737655 4.74928 0.614576 4.80277C0.491498 4.85627 0.380161 4.93348 0.286922 5.03C0.193684 5.12652 0.12037 5.24046 0.0711659 5.36532C0.0219619 5.49017 -0.00216855 5.6235 0.000152918 5.75768C0.00247438 5.89186 0.0312022 6.02427 0.0846957 6.14735C0.138189 6.27042 0.215401 6.38176 0.311922 6.475L4.15192 10.315C4.24489 10.4087 4.35549 10.4831 4.47735 10.5339C4.59921 10.5847 4.72991 10.6108 4.86192 10.6108C4.99393 10.6108 5.12464 10.5847 5.2465 10.5339C5.36836 10.4831 5.47896 10.4087 5.57192 10.315L13.7319 2.155C13.8334 2.06136 13.9144 1.94771 13.9698 1.82121C14.0252 1.69471 14.0539 1.5581 14.0539 1.42C14.0539 1.2819 14.0252 1.14529 13.9698 1.01879C13.9144 0.892295 13.8334 0.778643 13.7319 0.685Z" fill="white"/>
-                                            </svg>
-                                        ) : (
-                                            <svg width="15" height="11" viewBox="0 0 15 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M14.2319 0.685C14.139 0.591272 14.0284 0.516877 13.9065 0.466109C13.7846 0.41534 13.6539 0.389202 13.5219 0.389202C13.3899 0.389202 13.2592 0.41534 13.1373 0.466109C13.0155 0.516877 12.9049 0.591272 12.8119 0.685L5.36192 8.145L2.23192 5.005C2.1354 4.91176 2.02146 4.83845 1.8966 4.78924C1.77175 4.74004 1.63843 4.71591 1.50424 4.71823C1.37006 4.72055 1.23765 4.74928 1.11458 4.80277C0.991498 4.85627 0.880161 4.93348 0.786922 5.03C0.693684 5.12652 0.62037 5.24046 0.571166 5.36532C0.521962 5.49017 0.497831 5.6235 0.500153 5.75768C0.502474 5.89186 0.531202 6.02427 0.584696 6.14735C0.638189 6.27042 0.715401 6.38176 0.811922 6.475L4.65192 10.315C4.74489 10.4087 4.85549 10.4831 4.97735 10.5339C5.09921 10.5847 5.22991 10.6108 5.36192 10.6108C5.49393 10.6108 5.62464 10.5847 5.7465 10.5339C5.86836 10.4831 5.97896 10.4087 6.07192 10.315L14.2319 2.155C14.3334 2.06136 14.4144 1.94771 14.4698 1.82121C14.5252 1.69471 14.5539 1.5581 14.5539 1.42C14.5539 1.2819 14.5252 1.14529 14.4698 1.01879C14.4144 0.892295 14.3334 0.778643 14.2319 0.685Z" fill="#57CA8C"/>
-                                            </svg>
-                                        )
-                                    }
-                                </span>
-                                <span style={{color: (special) ? 'white' : '#38383a'}}>{item}</span>
-                            </li>
-                        ))}
-                    </ul>
-                    <div
-                        style={{
-                            position: 'absolute',
-                            bottom: 30,
-                            width: 'calc(100% - 60px)'
-                        }}
-                    >
-                        {buttonCharge}
+                            <span
+                                style={{
+                                    fontWeight:'600',
+                                    fontSize:'24px',
+                                    position: 'relative',
+                                    lineHeight: '36px',
+                                    color: (special )  ? 'white' : '#38383A'
+                                }}
+                            >
+                                {priceCharge}
+                                <span style={{fontSize: 16, fontWeight: '600', lineHeight: '24px'}}>/month</span>
+                            </span>
+                            {
+                                priceBeforeDiscount && (
+                                    <span 
+                                        style={{
+                                            fontSize: '24px',
+                                            textDecorationLine: 'line-through',
+                                            color: special ? 'white' : '#96A2BA',
+                                            marginLeft:'10px',
+                                            position: 'relative'
+                                        }}
+                                    >
+                                        {priceBeforeDiscount}
+                                    </span> 
+                                )
+                            }
+                        </div>
                         <p
                             style={{
-                                marginTop: 8,
-                                color: special ? 'white' : '#96A2BA',
-                                lineHeight: '21px'
+                                color: special ? 'white' : '#707070',
+                                marginBottom: 8
                             }}
                         >
                             {
-                                typePlan == 'unl' ? <Trans>Best fit for stores with 5000 products</Trans>
-                                : typePlan == 'pro' ? <Trans>Best fit for stores with 500 products</Trans>
-                                : <Trans>Best fit for stores with 50 products</Trans>
+                                typePlan == 'unl' ? ("Save $150/hour on SEO Agency")
+                                : typePlan == 'pro' ? ("Save 300 hours of SEO manual tasks")
+                                : ("Save 8 weeks to master SEO Basics")
                             }
                         </p>
+                        <div
+                            style={{
+                                width: 213,
+                                margin: 'auto',
+                                marginBottom: 31
+                            }}
+                        >
+                            {buttonCharge}
+                        </div>
+                        <Row justify="center">
+                            <Col>
+                                <div
+                                    style={{
+                                        textAlign: 'left',
+                                        color: (  special) ? 'white' : 'rgba(56, 56, 58, 1)',
+                                        fontWeight: '700',
+                                        marginBottom: 10,
+                                        marginLeft: 15
+                                    }}
+                                >
+                                    {
+                                        typePlan == 'unl' ? ("Everything in PREMIUM, plus:")
+                                        : typePlan == 'pro' ? ("Everything in STARTER, plus:")
+                                        : ''
+                                    }
+                                </div>
+                                <ul 
+                                    style={{
+                                        textAlign: 'left',
+                                        marginLeft: 15
+                                    }}
+                                >
+                                    {listOptions.map((item, index) => (
+                                        <li key={index}>
+                                            <span style={{marginRight: 8}}>
+                                                {
+                                                    typePlan == 'unl' ? (
+                                                        <svg width="15" height="11" viewBox="0 0 15 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M13.7319 0.685C13.639 0.591272 13.5284 0.516877 13.4065 0.466109C13.2846 0.41534 13.1539 0.389202 13.0219 0.389202C12.8899 0.389202 12.7592 0.41534 12.6373 0.466109C12.5155 0.516877 12.4049 0.591272 12.3119 0.685L4.86192 8.145L1.73192 5.005C1.6354 4.91176 1.52146 4.83845 1.3966 4.78924C1.27175 4.74004 1.13843 4.71591 1.00424 4.71823C0.870064 4.72055 0.737655 4.74928 0.614576 4.80277C0.491498 4.85627 0.380161 4.93348 0.286922 5.03C0.193684 5.12652 0.12037 5.24046 0.0711659 5.36532C0.0219619 5.49017 -0.00216855 5.6235 0.000152918 5.75768C0.00247438 5.89186 0.0312022 6.02427 0.0846957 6.14735C0.138189 6.27042 0.215401 6.38176 0.311922 6.475L4.15192 10.315C4.24489 10.4087 4.35549 10.4831 4.47735 10.5339C4.59921 10.5847 4.72991 10.6108 4.86192 10.6108C4.99393 10.6108 5.12464 10.5847 5.2465 10.5339C5.36836 10.4831 5.47896 10.4087 5.57192 10.315L13.7319 2.155C13.8334 2.06136 13.9144 1.94771 13.9698 1.82121C14.0252 1.69471 14.0539 1.5581 14.0539 1.42C14.0539 1.2819 14.0252 1.14529 13.9698 1.01879C13.9144 0.892295 13.8334 0.778643 13.7319 0.685Z" fill="#57CA8C"/>
+                                                        </svg>
+                                                    ) : (
+                                                        <svg width="15" height="11" viewBox="0 0 15 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M14.2319 0.685C14.139 0.591272 14.0284 0.516877 13.9065 0.466109C13.7846 0.41534 13.6539 0.389202 13.5219 0.389202C13.3899 0.389202 13.2592 0.41534 13.1373 0.466109C13.0155 0.516877 12.9049 0.591272 12.8119 0.685L5.36192 8.145L2.23192 5.005C2.1354 4.91176 2.02146 4.83845 1.8966 4.78924C1.77175 4.74004 1.63843 4.71591 1.50424 4.71823C1.37006 4.72055 1.23765 4.74928 1.11458 4.80277C0.991498 4.85627 0.880161 4.93348 0.786922 5.03C0.693684 5.12652 0.62037 5.24046 0.571166 5.36532C0.521962 5.49017 0.497831 5.6235 0.500153 5.75768C0.502474 5.89186 0.531202 6.02427 0.584696 6.14735C0.638189 6.27042 0.715401 6.38176 0.811922 6.475L4.65192 10.315C4.74489 10.4087 4.85549 10.4831 4.97735 10.5339C5.09921 10.5847 5.22991 10.6108 5.36192 10.6108C5.49393 10.6108 5.62464 10.5847 5.7465 10.5339C5.86836 10.4831 5.97896 10.4087 6.07192 10.315L14.2319 2.155C14.3334 2.06136 14.4144 1.94771 14.4698 1.82121C14.5252 1.69471 14.5539 1.5581 14.5539 1.42C14.5539 1.2819 14.5252 1.14529 14.4698 1.01879C14.4144 0.892295 14.3334 0.778643 14.2319 0.685Z" fill="#38383A"/>
+                                                        </svg>
+                                                    )
+                                                }
+                                            </span>
+                                            <span 
+                                                style={{color: (special) ? 'white' : '#38383a', position: 'relative'}}
+                                            >
+                                                {item}
+                                                {
+                                                    (item == 'Advanced Snippets' || item == 'Customized Expert') && (
+                                                        <span style={{fontSize: 8, fontWeight: '800', color: '#FF3C00', position: 'absolute', right: '-20px'}}>HOT</span>
+                                                    )
+                                                }
+                                            </span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </Col>
+                        </Row>
+                        {
+                            special && (
+                                <span
+                                    style={{
+                                        position: 'absolute',
+                                        padding: '1px 12px',
+                                        lineHeight: '18px',
+                                        fontSize: '12px',
+                                        fontWeight: '600',
+                                        top: '-9px',
+                                        left: 'calc(50% - 118px/2 - 0.5px)',
+                                        background: "#38383A",
+                                        borderRadius: "10px"
+                                    }}
+                                >
+                                    <Trans>RECOMMENDED</Trans>
+                                </span>
+                            )
+                        }
                     </div>
-                    {
-                        special && (
-                            <span
-                                style={{
-                                    position: 'absolute',
-                                    padding: '1px 12px',
-                                    lineHeight: '18px',
-                                    fontSize: '12px',
-                                    fontWeight: '600',
-                                    top: '-9px',
-                                    left: 'calc(50% - 118px/2 - 0.5px)',
-                                    background: "#38383A",
-                                    borderRadius: "10px"
-                                }}
-                            >
-                                <Trans>RECOMMENDED</Trans>
-                            </span>
-                        )
-                    }
                 </div>
             )
         }
@@ -781,17 +797,27 @@ class Pricing extends Component {
               
                 <div>
                     <div>
-                        <Row className="pricing-v3-title" justify="center" style={{fontSize: 26, marginBottom: 11}}>
-                            <Trans>Choose a plan that is right for you.</Trans>
+                        <Row justify='center' style={{marginTop: 30}}>
+                            <span style={{ fontSize: 36, fontWeight: '600'}}><Trans>Welcome to</Trans></span>
+                            <span style={{color: '#FF3C00', fontSize: 36, fontWeight: '600', marginLeft: 7}}> <Trans>SearchPie</Trans></span>
                         </Row>
-                        <Row justify="center" style={{fontSize: 16, marginBottom: 37}}>
-                            <Trans>No fee is applied during trial days. 30-day refund guarantee unconditionally.</Trans>
+                        <Row justify="center">
+                            <img src="/images/goal-quickstart.png" alt="goal" 
+                                style={{width: 75, height: 52, display: 'block', marginBottom: 11}}
+                            />
+                        </Row>
+                        <Row className="pricing-v3-title" justify="center" style={{fontSize: 26, marginBottom: 11}}>
+                            <Trans>Starter is great, Enterprise is better</Trans>
+                        </Row>
+                        <Row justify="center" style={{fontSize: 16, marginBottom: 27}}>
+                            <Trans>Select the perfect for your needs. 3-day FREE Trial plus 30-day Refund guarantee unconditionally!</Trans>
                         </Row>
                         <Row className='pricing-v3-plan' justify='space-between' style={{marginBottom: 35}}>
                             <ItemPlan 
                                 title='STARTER' 
                                 typePlan='free' 
                                 priceCharge='$0' 
+                                service='50 products'
                                 listOptions={dataFree}
                                 buttonCharge={
                                     (
@@ -815,7 +841,7 @@ class Pricing extends Component {
                                                         fontWeight: '600'
                                                     }}
                                                 >
-                                                    <Trans>Choose STARTER</Trans>
+                                                    <Trans>SELECT</Trans>
                                                 </font>
                                             </Button>
                                         </a>
@@ -825,6 +851,7 @@ class Pricing extends Component {
                             <ItemPlan 
                                 title='PREMIUM' 
                                 typePlan='pro' 
+                                service='500 products'
                                 priceCharge={this.state.isYearly ? "$374" : '$39'}
                                 priceBeforeDiscount={this.state.isYearly ? "$468" : ''}
                                 listOptions={dataPro}
@@ -837,10 +864,11 @@ class Pricing extends Component {
                             <ItemPlan 
                                 title='ENTERPRISE' 
                                 typePlan='unl' 
+                                service='> 5000 products'
                                 priceCharge={this.state.isYearly ? "$758" : '$79'}
                                 priceBeforeDiscount={this.state.isYearly ? "$948" : ''}
                                 listOptions={dataUnl} 
-                                special={true}
+                                // special={true}
                                 buttonCharge={
                                     (
                                         <UnlButtonMonthly />
@@ -861,7 +889,8 @@ class Pricing extends Component {
                                         padding: '9px 55px',
                                         background: 'transparent',
                                         display: 'flex',
-                                        fontFamily: 'Poppins'
+                                        fontFamily: 'Poppins',
+                                        cursor: 'pointer'
                                     }}
                                     onClick={e => {
                                         this.setState({ 
