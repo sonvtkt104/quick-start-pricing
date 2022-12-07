@@ -715,27 +715,31 @@ class Pricing extends Component {
                         >
                             {buttonCharge}
                         </div>
-                        <Row justify="center">
-                            <Col>
-                                <div
-                                    style={{
-                                        textAlign: 'left',
-                                        color: (  special) ? 'white' : 'rgba(56, 56, 58, 1)',
-                                        fontWeight: '700',
-                                        marginBottom: 10,
-                                        marginLeft: 15
-                                    }}
-                                >
-                                    {
-                                        typePlan == 'unl' ? ("Everything in PREMIUM, plus:")
-                                        : typePlan == 'pro' ? ("Everything in STARTER, plus:")
-                                        : ''
-                                    }
-                                </div>
+                        <Row>
+                            <Col style={{width: '100%'}}>
+                                {
+                                    (typePlan == 'unl' || typePlan == 'pro') && (
+                                        <div
+                                            style={{
+                                                textAlign: 'left',
+                                                color: (  special) ? 'white' : 'rgba(56, 56, 58, 1)',
+                                                fontWeight: '700',
+                                                marginBottom: 10,
+                                                marginLeft: 'calc(50% - 106px)'
+                                            }}
+                                        >
+                                            {
+                                                typePlan == 'unl' ? ("Everything in PREMIUM, plus:")
+                                                : typePlan == 'pro' ? ("Everything in STARTER, plus:")
+                                                : ''
+                                            }
+                                        </div>
+                                    )
+                                }
                                 <ul 
                                     style={{
                                         textAlign: 'left',
-                                        marginLeft: 15
+                                        marginLeft: 'calc(50% - 106px)'
                                     }}
                                 >
                                     {listOptions.map((item, index) => (
