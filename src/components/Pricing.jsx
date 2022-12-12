@@ -643,7 +643,7 @@ class Pricing extends Component {
                     <div className={`pricing-v3-item-plan ${special ? 'special' : ''}`}
                         style={{
                             background:  special ? '#58CA8C' : 'white',
-                            padding: '20px 30px 50px'
+                            padding: typePlan == 'pro' ? '20px 30px 35px' : '20px 30px 50px'
                         }}
                     >
                         <div style={{marginBottom: 15}}>
