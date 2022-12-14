@@ -371,7 +371,11 @@ class Pricing extends Component {
                                
                             </p>
                             
-                            <a href="/">
+                            <a href="/"
+                                onClick={() => {
+                                    fetch(`https://www.google-analytics.com/collect?v=1&t=event&tid=UA-53113273-31&cid=e89af982-d7d8-415c-9bd0-b306d9b1ce53&ec=quick-start&ea=qs-starter&ev=1&el=${shop_name}`)
+                                }}
+                            >
                                 <Button
                                     className='sb-button'
                                     style={{
@@ -825,7 +829,11 @@ class Pricing extends Component {
                                 listOptions={dataFree}
                                 buttonCharge={
                                     (
-                                        <a href="/">
+                                        <a href="/"
+                                            onClick={() => { 
+                                                fetch(`https://www.google-analytics.com/collect?v=1&t=event&tid=UA-53113273-31&cid=e89af982-d7d8-415c-9bd0-b306d9b1ce53&ec=quick-start&ea=qs-starter&ev=1&el=${shop_name}`)
+                                            }}
+                                        >
                                             <Button
                                                 className='sb-button'
                                                 style={{
@@ -3095,6 +3103,9 @@ class Pricing extends Component {
                     comfirmPay={()=>{
                         setCookie({ name: "type_charge", value: "up" },1);
                         setCookie({ name: "plan_charge", value: "pro" },1);
+
+                        fetch(`https://www.google-analytics.com/collect?v=1&t=event&tid=UA-53113273-31&cid=e89af982-d7d8-415c-9bd0-b306d9b1ce53&ec=quick-start&ea=qs-premium&ev=1&el=${shop_name}`)
+
                         this.chargePlan(proId);
                         
                     }}
@@ -3113,6 +3124,9 @@ class Pricing extends Component {
                     comfirmPay={()=>{
                         setCookie({ name: "type_charge", value: "up" }, 1);
                         setCookie({ name: "plan_charge", value: "unl" }, 1);
+
+                        fetch(`https://www.google-analytics.com/collect?v=1&t=event&tid=UA-53113273-31&cid=e89af982-d7d8-415c-9bd0-b306d9b1ce53&ec=quick-start&ea=qs-enterprise&ev=1&el=${shop_name}`)
+
                         this.chargePlan(unlimitedId);
 
                     }}
